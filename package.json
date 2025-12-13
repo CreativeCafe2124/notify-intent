@@ -1,0 +1,38 @@
+{
+  "name": "notify-intent",
+  "version": "0.1.0",
+  "description": "Intent-first notification SDK",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "notification",
+    "intent",
+    "react",
+    "ui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CreativeCafe2124/notify-intent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CreativeCafe2124/notify-intent/issues"
+  },
+  "homepage": "https://github.com/CreativeCafe2124/notify-intent#readme"
+}
