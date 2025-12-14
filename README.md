@@ -1,3 +1,5 @@
+⚠️ Alpha release — API may change based on feedback.
+
 # notify-intent
 
 **Intent-first notification system for modern web applications**
