@@ -14,7 +14,7 @@ export interface PromiseMessages {
 }
 
 export interface NotifyOptions {
-  variant?: IntentType;
+  intent?: IntentType;
 }
 
 export type NotifyFn = {

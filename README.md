@@ -1,14 +1,19 @@
 # notify-intent
 
-Describe what happened. We handle the notification.
+**Intent-first notification system for modern web applications**
+
+A lightweight, zero-configuration notification library that automatically infers intent from your message text and provides a clean API for both simple and promise-based notifications.
 
 ## Usage
 
 ```ts
 import { notify } from 'notify-intent';
 
-// Basic notification
+// Basic notification with automatic intent inference
 notify("Payment failed");
+
+// Explicit intent specification
+notify("Custom message", { intent: "success" });
 
 // Promise-based notification
 notify.promise(saveUser(), {
@@ -22,6 +27,22 @@ notify.promise(saveUser(), {
 
 ```bash
 npm install notify-intent
+```
+
+## React Integration (Required)
+
+⚠️ **Important**: The `InAppProvider` is required for notifications to display in your React application.
+
+```tsx
+import { InAppProvider } from 'notify-intent';
+
+function App() {
+  return (
+    <InAppProvider>
+      <YourApp />
+    </InAppProvider>
+  );
+}
 ```
 
 ## Features
@@ -58,21 +79,14 @@ notify.promise(fetchData(), {
 });
 ```
 
-## React Integration
+## Available Intent Types
 
-Wrap your app with the provider:
+The library supports the following intent types:
 
-```tsx
-import { InAppProvider } from 'notify-intent';
-
-function App() {
-  return (
-    <InAppProvider>
-      <YourApp />
-    </InAppProvider>
-  );
-}
-```
+- `info` - Informational messages (default)
+- `success` - Success messages
+- `warning` - Warning messages
+- `error` - Error messages
 
 ## Intent Inference Rules
 

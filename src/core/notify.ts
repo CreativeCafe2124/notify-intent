@@ -7,12 +7,12 @@ import { IntentType, NotifyOptions, PromiseMessages, NotifyFn } from './types';
 ----------------------------- */
 
 export const notify: NotifyFn = ((message: string, options?: NotifyOptions) => {
-  const variant =
-    options?.variant ?? inferIntent(message);
+  const intent =
+    options?.intent ?? inferIntent(message);
 
   return intentStore.add({
     message,
-    intent: variant
+    intent
   });
 }) as NotifyFn;
 
@@ -24,7 +24,7 @@ notify.promise = async function <T>(
   promise: Promise<T>,
   messages: PromiseMessages
 ): Promise<T> {
-  const id = notify(messages.pending, { variant: 'info' });
+  const id = notify(messages.pending, { intent: 'info' });
 
   try {
     const result = await promise;
